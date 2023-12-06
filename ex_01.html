@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Selectors Example</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <h1 id="myid">Hello, World!</h1>
+    <p>This is a paragraph.</p>
+    <div>
+        <p>This is a nested paragraph.</p>
+    </div>
+    <h1 class="special">Special Heading</h1>
+    <h1 class="classy">Classy Heading</h1>
+
+    <script>
+        // id selector: Selects the element with the specified ID
+        var elem = $("#myid");
+        console.log("ID Selector:");
+        console.log(elem.text()); // Output: "Hello, World!"
+
+        // group selector: Selects multiple elements with different tags and the same ID
+        var elems = $("#myid, p");
+        console.log("Group Selector:");
+        elems.each(function () {
+            console.log($(this).text());
+        });
+        // Output:
+        // "Hello, World!"
+        // "This is a paragraph."
+        // "This is a nested paragraph."
+
+        // context selector: Selects elements within a specific context (in this case, div within #myid)
+        var elemsWithContext = $("#myid > div p");
+        console.log("Context Selector:");
+        elemsWithContext.each(function () {
+            console.log($(this).text());
+        });
+        // Output:
+        // "This is a nested paragraph."
+
+        // complex selector: Selects h1 elements with class 'special' and not class 'classy' within #myid
+        var complexSelector = $("#myid > h1.special:not(.classy)");
+        console.log("Complex Selector:");
+        complexSelector.each(function () {
+            console.log($(this).text());
+        });
+        // Output:
+        // "Special Heading"
+    </script>
+</body>
+</html>
