@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AJAX Examples</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>AJAX Examples</h1>
+
+  <h2>1. Making a GET Request:</h2>
+  <pre id="get-result"></pre>
+  <script>
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts/1',
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        $('#get-result').text(JSON.stringify(data, null, 2));
+      },
+      error: function (xhr, status, error) {
+        console.error('GET request error:', error);
+      }
+    });
+  </script>
+
+  <h2>2. Making a POST Request with Data:</h2>
+  <pre id="post-result"></pre>
+  <script>
+    var requestData = {
+      title: 'foo',
+      body: 'bar',
+      userId: 1
+    };
+
+    $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      type: 'POST',
+      dataType: 'json',
+      data: JSON.stringify(requestData),
+      contentType: 'application/json',
+      success: function (data) {
+        $('#post-result').text(JSON.stringify(data, null, 2));
+      },
+      error: function (xhr, status, error) {
+        console.error('POST request error:', error);
+      }
+    });
+  </script>
+
+  <h2>3. Loading HTML Content:</h2>
+  <div id="html-content"></div>
+  <script>
+    $.ajax({
+      url: 'content.html',
+      type: 'GET',
+      dataType: 'html',
+      success: function (html) {
+        $('#html-content').html(html);
+      },
+      error: function (xhr, status, error) {
+        console.error('Error loading HTML content:', error);
+      }
+    });
+  </script>
+
+  <h2>4. Loading JSON and Iterating Through Data:</h2>
+  <pre id="json-data"></pre>
+  <script>
+    $.getJSON('data.json', function (data) {
+      $('#json-data').text(JSON.stringify(data, null, 2));
+    }).fail(function (xhr, status, error) {
+      console.error('Error loading JSON:', error);
+    });
+  </script>
+
+  <h2>5. Handling Asynchronous Requests Using Promises (Deferred):</h2>
+  <pre id="promise-result"></pre>
+  <script>
+    var request = $.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts/1',
+      type: 'GET',
+      dataType: 'json'
+    });
+
+    request.done(function (data) {
+      $('#promise-result').text(JSON.stringify(data, null, 2));
+    });
+
+    request.fail(function (xhr, status, error) {
+      console.error('Request failed:', error);
+    });
+  </script>
+</body>
+</html>
