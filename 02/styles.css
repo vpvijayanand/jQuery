@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.demo-section, .result-section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.result {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+}
+
+.result h3 {
+    margin: 0;
+}
