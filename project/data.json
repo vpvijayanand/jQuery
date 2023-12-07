@@ -1,0 +1,27 @@
+{
+    "Python": [
+        {
+            "question": "What is 1 + 1?",
+            "choices": ["1", "2", "3"],
+            "answer": "2"
+        },
+        {
+            "question": "What is the capital of France?",
+            "choices": ["London", "Berlin", "Paris"],
+            "answer": "Paris"
+        },
+        // Add more Python questions here...
+    ],
+    "Java": [
+        // Java questions...
+    ],
+    "PHP": [
+        // PHP questions...
+    ],
+    "C++": [
+        // C++ questions...
+    ],
+    ".Net": [
+        // .Net questions...
+    ]
+}
