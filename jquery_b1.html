@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <style>
+        .highlight { background-color: yellow; }
+        .big-font { font-size: 20px; }
+        .box { width: 100px; height: 100px; background-color: blue; margin: 10px; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // jQuery Get
+            $("#get-btn").click(function() {
+                alert("Text Content: " + $("#text-content").text());
+            });
+
+            // jQuery Set
+            $("#set-btn").click(function() {
+                $("#text-content").text("New Text Set!");
+            });
+
+            // jQuery Add
+            $("#add-btn").click(function() {
+                $("#list").append("<li>New Item</li>");
+            });
+
+            // jQuery Remove
+            $("#remove-btn").click(function() {
+                $("#list li:last").remove();
+            });
+
+            // jQuery CSS Classes
+            $("#toggle-highlight-btn").click(function() {
+                $("#text-content").toggleClass("highlight");
+            });
+
+            // jQuery css()
+            $("#change-color-btn").click(function() {
+                $(".box").css("background-color", "red");
+            });
+
+            // jQuery Dimensions
+            $("#change-size-btn").click(function() {
+                $(".box").css({ width: "200px", height: "200px" });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery Demo</h1>
+
+    <div id="text-content" class="big-font">Sample Text</div>
+    <button id="get-btn">Get Text</button>
+    <button id="set-btn">Set Text</button>
+    <button id="toggle-highlight-btn">Toggle Highlight</button>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button id="add-btn">Add Item</button>
+    <button id="remove-btn">Remove Item</button>
+
+    <div class="box"></div>
+    <button id="change-color-btn">Change Box Color</button>
+    <button id="change-size-btn">Change Box Size</button>
+</body>
+</html>
