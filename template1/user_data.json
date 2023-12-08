@@ -1,0 +1,7 @@
+[
+    {"id": 1, "name": "Aarav Kumar", "email": "aarav.kumar@example.com", "mobile": "1234567890"},
+    {"id": 2, "name": "Aditi Sharma", "email": "aditi.sharma@example.com", "mobile": "1234567891"},
+    {"id": 3, "name": "Rohan Singh", "email": "rohan.singh@example.com", "mobile": "1234567892"},
+    {"id": 4, "name": "Isha Patel", "email": "isha.patel@example.com", "mobile": "1234567893"},
+    {"id": 5, "name": "Vivek Gupta", "email": "vivek.gupta@example.com", "mobile": "1234567894"}
+]
