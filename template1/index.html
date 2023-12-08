@@ -5,7 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $.getJSON('userdata.json', function(users) {
+            $.getJSON('user_data.json', function(users) {
                 $.get('user_template.html', function(template) {
                     const templateDiv = $(template).find('#user-template').html();
                     users.forEach(user => {
