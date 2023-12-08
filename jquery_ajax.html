@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery AJAX Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // jQuery Load
+            $("#load-btn").click(function() {
+                $("#result").load("data.txt");
+            });
+
+            // jQuery Get
+            $("#get-btn").click(function() {
+                $.get("/get-data", function(data) {
+                    $("#result").html(data);
+                });
+            });
+
+            // jQuery Post
+            $("#post-btn").click(function() {
+                $.post("/submit-data", { name: "User", value: "1234" }, function(data) {
+                    $("#result").html(data);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery AJAX Demo</h1>
+
+    <button id="load-btn">Load Data</button>
+    <button id="get-btn">Get Data</button>
+    <button id="post-btn">Post Data</button>
+
+    <div id="result"></div>
+</body>
+</html>
