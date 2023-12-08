@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traversing Demo</title>
+    <style>
+        .highlight { background-color: yellow; }
+        .selected { border: 2px solid red; }
+        .box { width: 100px; height: 100px; background-color: blue; margin: 10px; float: left; }
+        .clear { clear: both; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // jQuery Ancestors
+            $("#find-ancestors-btn").click(function() {
+                $(".selected").removeClass("selected");
+                $("#descendant").parents().addClass("highlight");
+            });
+
+            // jQuery Descendants
+            $("#find-descendants-btn").click(function() {
+                $(".highlight").removeClass("highlight");
+                $("#ancestor").find("p").addClass("highlight");
+            });
+
+            // jQuery Siblings
+            $("#find-siblings-btn").click(function() {
+                $(".highlight").removeClass("highlight");
+                $("#middle-sibling").siblings().addClass("highlight");
+            });
+
+            // jQuery Filtering
+            $("#filter-elements-btn").click(function() {
+                $(".highlight").removeClass("highlight");
+                $("div").filter(".box").addClass("highlight");
+            });
+
+            // Clear Highlights
+            $("#clear-highlights-btn").click(function() {
+                $(".highlight").removeClass("highlight");
+                $(".selected").removeClass("selected");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery Traversing Demo</h1>
+
+    <div id="ancestor">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p id="descendant">Paragraph 3 (Descendant)</p>
+        <button id="find-ancestors-btn">Find Ancestors of Paragraph 3</button>
+    </div>
+    
+    <button id="find-descendants-btn">Find Descendants of Ancestor Div</button>
+    
+    <div>
+        <div class="box">Box 1</div>
+        <div class="box" id="middle-sibling">Box 2</div>
+        <div class="box">Box 3</div>
+        <button id="find-siblings-btn">Find Siblings of Box 2</button>
+    </div>
+
+    <div class="clear">
+        <button id="filter-elements-btn">Filter Div Elements</button>
+        <button id="clear-highlights-btn">Clear Highlights</button>
+    </div>
+</body>
+</html>
